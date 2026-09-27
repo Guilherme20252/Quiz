@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz para Programadores</title>
+  <meta name="description" content="Um quiz interativo para testar seus conhecimentos de programação." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a class="logo" href="#" data-goto="inicio"> DevQuiz </a>
+
+      <div class="mobile-menu">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+
+      <ul class="nav-list">
+        <li><button data-target="inicio" class="active">Início</button></li>
+        <li><button data-target="quiz">Quiz</button></li>
+        <li><button data-target="recorde">Recorde</button></li>
+        <li><button data-target="mais">Mais</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ===================== INÍCIO ===================== -->
+    <section id="inicio" class="view active">
+      <div class="hero">
+        <h1>Quiz interativo para programadores</h1>
+        <p>Teste seus conhecimentos em lógica, HTML, CSS e JavaScript com 8 perguntas rápidas — e guarde seu recorde.</p>
+        <button class="btn-primary" data-goto="quiz">Começar quiz</button>
+      </div>
+    </section>
+
+    <!-- ===================== QUIZ ===================== -->
+    <section id="quiz" class="view">
+      <div class="view-title">
+        <h2>Quiz interativo</h2>
+        <p>Responda as 8 perguntas abaixo e clique em "Corrigir quiz" no final para ver sua nota.</p>
+      </div>
+
+      <div class="quiz-wrap">
+        <p class="intro">
+          Você encontrará diferentes tipos de perguntas — múltipla escolha, texto, data e mais.
+          Alguns acrônimos usados: <abbr title="HyperText Markup Language">HTML</abbr> e
+          <abbr title="Cascading Style Sheets">CSS</abbr>.
+        </p>
+
+        <form id="quiz-form">
+
+          <!-- Pergunta 1 -->
+          <div class="question-card" id="card-p1">
+            <h3><span class="num">1.</span>Qual linguagem é usada para estruturar páginas web?</h3>
+            <div class="option"><input type="radio" value="python" id="p1a" name="pergunta1"><label for="p1a">Python</label></div>
+            <div class="option"><input type="radio" value="HTML" id="p1b" name="pergunta1"><label for="p1b">HTML</label></div>
+            <div class="option"><input type="radio" value="Javascript" id="p1c" name="pergunta1"><label for="p1c">Javascript</label></div>
+            <div class="option"><input type="radio" value="Ruby" id="p1d" name="pergunta1"><label for="p1d">Ruby</label></div>
+            <p class="feedback"></p>
+          </div>
+
+          <!-- Pergunta 2 -->
+          <div class="question-card" id="card-p2">
+            <h3><span class="num">2.</span>Na URL https://www.google.com o trecho "google.com" é o _____</h3>
+            <input type="text" id="p2" placeholder="Digite sua resposta...">
+            <p class="feedback"></p>
+          </div>
+
+          <!-- Pergunta 3 -->
+          <div class="question-card" id="card-p3">
+            <h3><span class="num">3.</span>Crie um exemplo de senha forte</h3>
+            <input type="password" id="p3" placeholder="Digite uma senha...">
+            <p class="feedback"></p>
+          </div>
+
+          <!-- Pergunta 4 -->
+          <div class="question-card" id="card-p4">
+            <h3><span class="num">4.</span>Em que ano o HTML lançou a sua primeira versão?</h3>
+            <input type="date" id="p4">
+            <p class="feedback"></p>
+          </div>
+
+          <!-- Pergunta 5 -->
+          <div class="question-card" id="card-p5">
+            <h3><span class="num">5.</span>Quais dessas tecnologias são consideradas linguagens de programação?</h3>
+            <div class="option"><input type="checkbox" id="p5a" name="pergunta5" value="Javascript"><label for="p5a">JavaScript</label></div>
+            <div class="option"><input type="checkbox" id="p5b" name="pergunta5" value="HTML"><label for="p5b">HTML</label></div>
+            <div class="option"><input type="checkbox" id="p5c" name="pergunta5" value="Java"><label for="p5c">Java</label></div>
+            <div class="option"><input type="checkbox" id="p5d" name="pergunta5" value="CSS"><label for="p5d">CSS</label></div>
+            <p class="feedback"></p>
+          </div>
+
+          <!-- Pergunta 6 -->
+          <div class="question-card" id="card-p6">
+            <h3><span class="num">6.</span>Faça upload de um arquivo com extensão .html</h3>
+            <input type="file" id="p6" accept=".html">
+            <p class="feedback"></p>
+          </div>
+
+          <!-- Pergunta 7 -->
+          <div class="question-card" id="card-p7">
+            <h3><span class="num">7.</span>Selecione o atributo do input que define o seu tipo:</h3>
+            <select id="p7">
+              <option value="" selected disabled>Escolha uma opção</option>
+              <option value="id">id</option>
+              <option value="type">type</option>
+              <option value="placeholder">placeholder</option>
+            </select>
+            <p class="feedback"></p>
+          </div>
+
+          <!-- Pergunta 8 -->
+          <div class="question-card" id="card-p8">
+            <h3><span class="num">8.</span>O que esse trecho de código imprime no console?</h3>
+            <div class="snippet">function saudacao() {
+  return "Olá, mundo!";
+}
+console.log(saudacao());</div>
+            <input type="text" id="p8" placeholder="Digite sua resposta...">
+            <p class="feedback"></p>
+          </div>
+
+          <button type="button" class="btn-primary" id="btn-corrigir">Corrigir quiz</button>
+          <button type="button" class="btn-secondary" id="btn-refazer">Refazer quiz</button>
+        </form>
+
+        <div id="resultado-quiz">
+          <div class="score">0 / 8</div>
+          <p class="msg"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== RECORDE ===================== -->
+    <section id="recorde" class="view">
+      <div class="view-title">
+        <h2>Seu recorde</h2>
+        <p>Sua pontuação fica salva neste navegador.</p>
+      </div>
+
+      <div class="recorde-wrap">
+        <div class="stat-grid">
+          <div class="stat-card">
+            <div class="value" id="stat-melhor">0 / 8</div>
+            <div class="label">Melhor pontuação</div>
+          </div>
+          <div class="stat-card">
+            <div class="value" id="stat-ultima">—</div>
+            <div class="label">Última tentativa</div>
+          </div>
+          <div class="stat-card">
+            <div class="value" id="stat-tentativas">0</div>
+            <div class="label">Quizzes feitos</div>
+          </div>
+        </div>
+
+        <button class="btn-primary" data-goto="quiz">Jogar novamente</button>
+        <br>
+        <button class="btn-secondary" id="btn-zerar-recorde">Zerar recorde</button>
+      </div>
+    </section>
+
+    <!-- ===================== MAIS ===================== -->
+    <section id="mais" class="view">
+      <div class="view-title">
+        <h2>Mais sobre o projeto</h2>
+      </div>
+
+      <div class="mais-wrap">
+        <section>
+          <h2>Sobre</h2>
+          <p>Este quiz foi desenvolvido para testar conhecimentos básicos de programação e desenvolvimento web, unindo dois projetos de portfólio: um menu responsivo e um quiz interativo.</p>
+        </section>
+
+        <section>
+          <h2>Tecnologias</h2>
+          <p>HTML, CSS e JavaScript puro (vanilla), sem frameworks ou bibliotecas externas.</p>
+        </section>
+
+        <section>
+          <h2>Código-fonte</h2>
+          <p>Confira o repositório no <a class="link" href="https://github.com/" target="_blank" rel="noopener">GitHub</a>.</p>
+        </section>
+
+        <section>
+          <h2>Contato</h2>
+          <p>Quer trocar uma ideia sobre o projeto? Fale comigo em <a class="link" href="mailto:seuemail@exemplo.com">seuemail@exemplo.com</a>.</p>
+        </section>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
